@@ -12,7 +12,14 @@
             <div class="form-group">
             <label class="col-md-4 control-label" for="acativity_name">活動名稱</label>  
             <div class="col-md-4">
-            <input id="acativity_name" name="acativity_name" type="text" placeholder="" class="form-control input-md" required="">
+            <input 
+                id="acativity_name" 
+                name="acativity_name" 
+                type="text" placeholder="" 
+                class="form-control input-md" 
+                required=""
+                value="{{ $notice->name }}"
+            >
                 
             </div>
             </div>
@@ -21,8 +28,16 @@
             <div class="form-group">
             <label class="col-md-4 control-label" for="activity_time">活動日期/時間</label>  
             <div class="col-md-4">
-            <input id="activity_time" name="activity_time" type="text" placeholder="2018-01-01 00:00:00" class="form-control input-md" required="">
-                
+            <input 
+                id="activity_time" 
+                name="activity_time" 
+                type="text" 
+                placeholder="2018-01-01 00:00:00" 
+                class="form-control input-md" 
+                required=""
+                value="{{ $notice->datetime }}"
+            >
+            <span class="hint"> {{ $msg }} </span>   
             </div>
             </div>
             
@@ -30,7 +45,14 @@
             <div class="form-group">
             <label class="col-md-4 control-label" for="activity_content">活動內容</label>  
             <div class="col-md-4">
-            <input id="activity_content" name="activity_content" type="text" placeholder="" class="form-control input-md">
+            <input 
+                id="activity_content" 
+                name="activity_content" 
+                type="text" 
+                placeholder="" 
+                class="form-control input-md"
+                value="{{ $notice->content }}"
+            >
                 
             </div>
             </div>
@@ -39,11 +61,17 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="button1id"></label>
                 <div class="col-md-8">
-                    <button id="button1id"  type="submit" name="button1id" class="btn btn-danger">取消</button>
+                    <a id="button1id" name="button1id" class="btn btn-warning" href="/notice">取消</a>
                     <button id="btn_send" type="submit" name="btn_send" class="btn btn-success">送出</button>
                 </div>
             </div>
         
         </fieldset>
     </form>
+
+    <style>
+        .hint {
+            color: red;
+        }
+    </style>
         

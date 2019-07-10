@@ -1,0 +1,101 @@
+composer -V 
+php --version
+============
+vsCode 
+
+! 
+html:5
+
+區塊註解 cmd + k + c  
+區塊取消註解 cmd + k + u
+區塊註解 cmd + k + c 
+區塊取消註解 cmd + k + u
+自動整理程式碼 alt + shift + f
+單行/區塊上下快速換行 alt + ↓ or ↑
+快速複製這一行，直接alt + shift + ↑ or ↓ 
+========================
+laravel
+
+file：
+1.resources：處理(動態資料)過後
+2.public：直接給(優先、靜態資料)
+
+['who' => ？]
+withWho(？)
+$who = ？ => compact('who')
+
+param：#、\ => X
+
+php artisan Controller --resource
+php artisan Controller --api
+
+=======================
+view
+
+{!! $line !!}:laravel scrf問題(script) 忽略
+
+
+controllter：控制網站流程
+model：商業流程(邏輯)
+
+** 進機器
+cd c:\xampp\mysql\bin
+mysql -u root -p
+
+php artisan tinker
+
+** eloquent：列式呼叫
+第二筆：->skip(1)->first()
+->find(4) => array
+->where('id', 4)->delete()
+
+DB::table('employees')->get();
+App\Employee::all() / App\Employee::get()
+new Datetime
+
+** bootstrap
+bootsnipp
+pull-right
+btn btn-md btn-success
+
+(file：demi/notice/work)
+1.(demi) git clone repository
+2.(notice) laravel new newProject
+** 控制台-管理你的認證-windows認證 (github移除)
+
+DB::rollback();
+DB::beginTransaction();
+
+sql
+set session transaction isolation level read committed
+set session transaction isolation level repeatable read
+lock in share mode
+
+
+增查修刪公告事項(編號、標題、日期)
+param check *2
+delete check
+
+================
+多人控管
+optimistic：update ... where id = 1 and qty = 100
+Ticket::find(1).lockForUpdate()->first();
+
+MVC
+
+https://forms.gle/NJMkBa5sueNrNKT46
+
+
+$oRequest->session()->get('userID', 000)
+$oRequest->session()->put('userID', 000)
+$oRequest->session()->forget('userID')
+
+<img src="/draw"> => session record
+
+local storage
+session storage
+
+
+
+
+

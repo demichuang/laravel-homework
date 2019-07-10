@@ -27,7 +27,15 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        return view('notice/create');
+        $msg = '';
+        $noticeData = [
+            'name' => '',
+            'datetime' => '',
+            'content' => '',
+        ];
+        $notice = (object) $noticeData;
+
+        return view('notice/create', compact('notice', 'msg')); 
     }
 
     /**
@@ -38,6 +46,18 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->activity_time !== date('Y-m-d H:i:s', strtotime($request->activity_time))) {
+            $msg = 'date error';
+            $noticeData = [
+                'name' => $request->acativity_name,
+                'datetime' => $request->activity_time,
+                'content' => $request->activity_content,
+            ];
+            $notice = (object) $noticeData;
+            
+            return view('notice/create', compact('notice', 'msg'));   
+        }
+
         DB::beginTransaction();
         try { 
             $information = new Information();
@@ -72,9 +92,10 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
+        $msg = '';
         $notice = Information::find($id);
 
-        return view('notice/edit', compact('notice'));;
+        return view('notice/edit', compact('notice', 'msg'));
     }
 
     /**
@@ -86,6 +107,19 @@ class NoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->activity_time !== date('Y-m-d H:i:s', strtotime($request->activity_time))) {
+            $msg = 'date error';
+            $noticeData = [
+                'id' => $id,
+                'name' => $request->acativity_name,
+                'datetime' => $request->activity_time,
+                'content' => $request->activity_content,
+            ];
+            $notice = (object) $noticeData;
+
+            return view('notice/edit', compact('notice', 'msg'));   
+        }
+
         DB::beginTransaction();
         try { 
             $information = Information::find($id);
