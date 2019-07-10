@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="button1id"></label>
                 <div class="col-md-8">
-                    <button id="button1id"  type="submit" name="button1id" class="btn btn-danger">取消</button>
+                    <button id="button1id"  type="submit" name="button1id" class="btn btn-warning">取消</button>
                     <button id="btn_send" type="submit" name="btn_send" class="btn btn-success">送出</button>
                 </div>
             </div>
