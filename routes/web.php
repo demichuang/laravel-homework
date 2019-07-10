@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/notice', 'NoticeController@index');
+Route::get('/notice/create', 'NoticeController@create');
+Route::post('/notice', 'NoticeController@store');
+Route::get('/notice/{id}/edit', 'NoticeController@edit');
+Route::put('/notice/{id}', 'NoticeController@update');
+Route::delete('/notice/{id}', 'NoticeController@destroy');
